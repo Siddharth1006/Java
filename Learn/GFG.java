@@ -1,14 +1,21 @@
 import java.io.*;
+import java.util.Scanner; //To use Scanner
 
+//Scanner is preferred instead of BufferedReader
 public class GFG{
-    public static void main(String[] args) throws IOException {
-        //throws is a keyword that is used to tell the compiler that this code can throw "IOException"
-        //whoever is using this code has to cast/handle this exception.
-        BufferedReader BuffReader = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) { // no need to handle any exception.
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter an integer");
-        int x = Integer.parseInt(BuffReader.readLine()); // Explicitly typecasting a stream of characters to an integer
+        System.out.println("Please enter a String: ");
+        String str = sc.nextLine();
+        System.out.println("You entered the string: "  + str);
 
-        System.out.println("You entered: " + x);
+        System.out.println("Please enter an integer");
+        int x = sc.nextInt();
+        System.out.println("You entered the Integer: " + x);
+
+        System.out.println("Please enter a floating point number");
+        float f = sc.nextFloat();
+        System.out.println("You entered float: " + f);
     }
 }
