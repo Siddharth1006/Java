@@ -7,37 +7,19 @@ import java.util.Scanner;
 
 public class GFG{
     public static void main(String[] args) {
+        // x is stored using 32 bit 2's complement form.
+        // Binary representation of -1 is all 1s (111..1)
+        int x = -1;
 
-        Person obj1 = new Person();
-        Person obj2 = new Boy();
+//        operator '>>>' denotes unsigned right shift operator and always fill 0 irrespective of the sign of the numbe
 
-        // As obj is of type person, it is not an
-        // instance of Boy or interface
-        System.out.println("obj1 instanceof Person: "
-                + (obj1 instanceof Person));
-        System.out.println("obj1 instanceof Boy: "
-                + (obj1 instanceof Boy));
-        System.out.println("obj1 instanceof MyInterface: "
-                + (obj1 instanceof MyInterface));
+        // The value of 'x>>>29' is 00...0111
+        System.out.println(x >>> 29);
 
-        // Since obj2 is of type boy,
-        // whose parent class is person
-        // and it implements the interface Myinterface
-        // it is instance of all of these classes
-        System.out.println("obj2 instanceof Person: "
-                + (obj2 instanceof Person));
-        System.out.println("obj2 instanceof Boy: "
-                + (obj2 instanceof Boy));
-        System.out.println("obj2 instanceof MyInterface: "
-                + (obj2 instanceof MyInterface));
+        // The value of 'x>>>30' is 00...0011
+        System.out.println(x >>> 30);
+
+        // The value of 'x>>>31' is 00...0001
+        System.out.println(x >>> 31);
     }
-}
-
-class Person {
-}
-
-class Boy extends Person implements MyInterface {
-}
-
-interface MyInterface {
 }
