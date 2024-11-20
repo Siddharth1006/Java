@@ -6,28 +6,35 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class GFG{
-    public static int Nth_of_GP(int a, int r, int N)
-    {
-        // using formula to find the Nth
-        // term TN = a1 * r(N-1)
-        return (a * (int)(Math.pow(r, N - 1)));
-    }
 
-    // Driver code
-    public static void main(String[] args)
-    {
-        // starting number
-        int a = 2;
+    public static void main(String[] args) {
+        String Branch = "CSE";
+        int year = 3;
 
-        // Common ratio
-        int r = 3;
-
-        // N th term to be find
-        int N = 5;
-
-        // Function call
-        System.out.print("The " + N + "th term of the"
-                + " series is : "
-                + Nth_of_GP(a, r, N));
+        switch (year) {
+            case 1:
+                System.out.println("One of the 3 main courses = Engineering Physics, Basic Electronics Engineering, Problem Solving and Computer Programming");
+                break;
+            case 2:
+                switch (Branch) {
+                    case "CSE":
+                        System.out.println("3 electives - French , German, Basic Electronics Engineering");
+                        break;
+                    case "ECE":
+                        System.out.println("3 electives - Chemical engineering, French, Russian");
+                        break;
+                    default:
+                        System.out.println("3 electives - French, German, Business Management");
+                }
+                break;
+            case 3:
+                System.out.println("No electives. Internship");
+                break;
+            case 4:
+                System.out.println("Placements/Final Year Research");
+                break;
+            default:
+                System.out.println("Engineering takes 4 years usually..");
+        }
     }
 }
