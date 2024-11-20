@@ -8,33 +8,39 @@ import java.util.Scanner;
 public class GFG{
 
     public static void main(String[] args) {
-        String Branch = "CSE";
-        int year = 3;
+        Scanner sc = new Scanner(System.in);
 
-        switch (year) {
-            case 1:
-                System.out.println("One of the 3 main courses = Engineering Physics, Basic Electronics Engineering, Problem Solving and Computer Programming");
+        System.out.println("Enter the 2 numbers");
+        int firstNumber = sc.nextInt();
+        int secondNumber = sc.nextInt();
+
+        System.out.println("Enter the operand=> + , - , * , / , %");
+        sc.nextLine();
+        char operand = sc.nextLine().charAt(0);
+
+        calculate(firstNumber , secondNumber , operand);
+    }
+
+    static void calculate (int firstNumber,  int secondNumber , char operand) {
+        switch (operand) {
+            case '+':
+                System.out.println(firstNumber + secondNumber);
                 break;
-            case 2:
-                switch (Branch) {
-                    case "CSE":
-                        System.out.println("3 electives - French , German, Basic Electronics Engineering");
-                        break;
-                    case "ECE":
-                        System.out.println("3 electives - Chemical engineering, French, Russian");
-                        break;
-                    default:
-                        System.out.println("3 electives - French, German, Business Management");
-                }
+            case '-':
+                System.out.println(firstNumber - secondNumber);
                 break;
-            case 3:
-                System.out.println("No electives. Internship");
+            case '*':
+                System.out.println(firstNumber * secondNumber);
                 break;
-            case 4:
-                System.out.println("Placements/Final Year Research");
+            case '/':
+                double result = ((double) firstNumber / secondNumber);
+                System.out.format("%.2f" , result);
+                break;
+            case '%':
+                System.out.println(firstNumber % secondNumber);
                 break;
             default:
-                System.out.println("Engineering takes 4 years usually..");
+                System.out.println("Invalid operand");
         }
     }
 }
