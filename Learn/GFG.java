@@ -3,20 +3,31 @@ import java.util.Scanner;
 
 //Scanner is preferred instead of BufferedReader
 public class GFG{
-    public static void main(String[] args) throws IOException { // no need to handle any exception.
-        int x = 100, y = 200;
-        System.out.format("Value of x is : %d\n" , x);
+    public static void main(String[] args) throws IOException {
+        // initially assigning null. Nothing to read
 
-        float z = (float) Math.PI;
-        System.out.println(z);
+        FileReader sourceStream = null;
 
-        System.out.format("Value of PI = %.2f\n", z); // means print only 2 digits after decimal point
-        System.out.format("Value of PI = %5.2f\n", z); // 5 means print at least 5 characters and 2 digits after decimal point
-        //So, it will fill the extra characters with spaces
+        //try block to catch exceptions
+        try {
+            sourceStream = new FileReader("temp/demo.rtf");
 
-        System.out.format("Value of PI = %05.2f\n", z);
-        //Same as above, but it will fill extra characters with 0's instead of spaces.
+            int temp;
 
-        System.out.format("x= %d, y= %d", x,y);
+            // If there is content inside file
+            // then read
+            while ((temp = sourceStream.read()) != -1) {
+                System.out.print((char) temp);
+            }
+
+            System.out.println("Program executed successfully!");
+        } finally {
+
+            // Closing stream as it is NO longer in use
+
+            if (sourceStream != null) {
+                sourceStream.close();
+            }
+        }
     }
 }
