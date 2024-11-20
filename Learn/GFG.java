@@ -9,7 +9,8 @@ public class GFG{
         System.out.println("Enter an integer");
         //using nextInt() to parse Integer values
         int a = sc.nextInt();
-
+        // SOLUTION
+        sc.nextLine();
         System.out.println("Enter a string");
         String str = sc.nextLine();
         System.out.println("Enter a double value: ");
@@ -23,4 +24,6 @@ public class GFG{
     }
 }
 
+
+// REFERENCES = https://stackoverflow.com/questions/13102045/scanner-is-skipping-nextline-after-using-next-or-nextfoo
 
