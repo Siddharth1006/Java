@@ -6,11 +6,8 @@ public class GFG{
     public static void main(String[] args) throws IOException {
         // initially assigning null. Nothing to read
 
-        FileReader sourceStream = null;
-
-        //try block to catch exceptions
-        try {
-            sourceStream = new FileReader("temp/demo.rtf");
+        //using try for automatic resource management!
+        try (FileReader sourceStream = new FileReader("temp/demo.rtf")) {
 
             int temp;
 
@@ -21,13 +18,8 @@ public class GFG{
             }
 
             System.out.println("Program executed successfully!");
-        } finally {
-
-            // Closing stream as it is NO longer in use
-
-            if (sourceStream != null) {
-                sourceStream.close();
-            }
         }
+
+        // Closing stream as it is NO longer in use
     }
 }
