@@ -6,20 +6,28 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class GFG{
-    public static void main(String[] args) {
-        // x is stored using 32 bit 2's complement form.
-        // Binary representation of -1 is all 1s (111..1)
-        int x = -1;
+    public static int Nth_of_GP(int a, int r, int N)
+    {
+        // using formula to find the Nth
+        // term TN = a1 * r(N-1)
+        return (a * (int)(Math.pow(r, N - 1)));
+    }
 
-//        operator '>>>' denotes unsigned right shift operator and always fill 0 irrespective of the sign of the numbe
+    // Driver code
+    public static void main(String[] args)
+    {
+        // starting number
+        int a = 2;
 
-        // The value of 'x>>>29' is 00...0111
-        System.out.println(x >>> 29);
+        // Common ratio
+        int r = 3;
 
-        // The value of 'x>>>30' is 00...0011
-        System.out.println(x >>> 30);
+        // N th term to be find
+        int N = 5;
 
-        // The value of 'x>>>31' is 00...0001
-        System.out.println(x >>> 31);
+        // Function call
+        System.out.print("The " + N + "th term of the"
+                + " series is : "
+                + Nth_of_GP(a, r, N));
     }
 }
