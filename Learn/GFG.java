@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class GFG{
     public static void main(String[] args) {
-        //using Console Class
+        //using arguments
 
-//        Reading password without echoing the entered characters.
-//        Reading methods are synchronized.
-//        Format string syntax can be used.
-//        Does not work in non-interactive environment (such as in an IDE).
-
-        // Using Console to input data from user
-        String name = System.console().readLine();
-
-        System.out.println("You entered string " + name);
+        if (args.length > 0) {
+            //then lets iterate through all the values of the argument array
+            System.out.println("Printing all arguments");
+            for (String str : args) {
+                System.out.println(str);
+            }
+        } else {
+            System.out.println("Arguments array is empty");
+        }
     }
 }
 
