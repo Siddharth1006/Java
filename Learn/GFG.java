@@ -1,25 +1,20 @@
 import java.io.*;
 import java.util.Scanner;
 
-// To read from console using BufferedReader
 public class GFG{
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        //using Console Class
 
-        System.out.println("Enter an integer");
+//        Reading password without echoing the entered characters.
+//        Reading methods are synchronized.
+//        Format string syntax can be used.
+//        Does not work in non-interactive environment (such as in an IDE).
 
-        //Taking integer input
-        int a = Integer.parseInt(br.readLine());
+        // Using Console to input data from user
+        String name = System.console().readLine();
 
-        System.out.println("Enter a string");
-
-        String b = br.readLine();
-
-        //Printing
-        System.out.println("Integer is: " + a + " and String is: " + b);
+        System.out.println("You entered string " + name);
     }
 }
 
-
-// REFERENCES = https://stackoverflow.com/questions/13102045/scanner-is-skipping-nextline-after-using-next-or-nextfoo
 
