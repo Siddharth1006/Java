@@ -1,21 +1,22 @@
 import java.io.*;
-import java.util.Scanner; //To use Scanner
+import java.util.Scanner;
 
 //Scanner is preferred instead of BufferedReader
 public class GFG{
-    public static void main(String[] args) { // no need to handle any exception.
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException { // no need to handle any exception.
+        int x = 100, y = 200;
+        System.out.format("Value of x is : %d\n" , x);
 
-        System.out.println("Please enter a String: ");
-        String str = sc.nextLine();
-        System.out.println("You entered the string: "  + str);
+        float z = (float) Math.PI;
+        System.out.println(z);
 
-        System.out.println("Please enter an integer");
-        int x = sc.nextInt();
-        System.out.println("You entered the Integer: " + x);
+        System.out.format("Value of PI = %.2f\n", z); // means print only 2 digits after decimal point
+        System.out.format("Value of PI = %5.2f\n", z); // 5 means print at least 5 characters and 2 digits after decimal point
+        //So, it will fill the extra characters with spaces
 
-        System.out.println("Please enter a floating point number");
-        float f = sc.nextFloat();
-        System.out.println("You entered float: " + f);
+        System.out.format("Value of PI = %05.2f\n", z);
+        //Same as above, but it will fill extra characters with 0's instead of spaces.
+
+        System.out.format("x= %d, y= %d", x,y);
     }
 }
