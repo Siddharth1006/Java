@@ -4,36 +4,23 @@ import java.util.Scanner;
 //Scanner is preferred instead of BufferedReader
 public class GFG{
     public static void main(String[] args) throws IOException {
-        //Byte streams process data byte by byte (8 bits).
-        // Ex: FileInputStream is used to read from the source and
-        // FileOutputStream to write to the destination.
+        Scanner sc = new Scanner(System.in);
 
-        FileInputStream sourceStream = null;
-        FileOutputStream targetStream = null;
+        System.out.println("Enter an integer");
+        //using nextInt() to parse Integer values
+        int a = sc.nextInt();
 
-        //Try block to check for exceptions
-        try {
-            sourceStream = new FileInputStream("temp/demo.rtf");
-            targetStream = new FileOutputStream("temp/demoResponse.rtf");
+        System.out.println("Enter a string");
+        String str = sc.nextLine();
+        System.out.println("Enter a double value: ");
+        double doub = sc.nextDouble();
+        System.out.println("Enter a floating point value");
+        float flot = sc.nextFloat();
+        System.out.println("Enter a long value");
+        long longlongvalue = sc.nextLong();
 
-            // now reading from sourceFIle and writing to target file
-            int temp;
-
-            while ((temp = sourceStream.read()) != -1){
-                targetStream.write((byte) temp);
-            }
-
-            System.out.println("Program executed successfully!");
-
-        } finally {
-            // finally block executes when we are closing file for connections
-            // to avoid memory leakage
-
-            if (sourceStream != null)
-                sourceStream.close();
-
-            if (targetStream != null)
-                targetStream.close();
-        }
+        System.out.format("All values : %d , %s , %3.2f , %04.2f , %dl" , a , str, doub ,flot , longlongvalue);
     }
 }
+
+
