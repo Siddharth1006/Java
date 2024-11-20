@@ -1,41 +1,24 @@
 import java.io.*;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class GFG{
-    public static void main(String[] args) {
-        double num = 123.4567;
+    public static void main(String[] args) throws ParseException  {
+        //Formatting date as per the given pattern in the argument
+        SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy");
+        String date = ft.format(new Date());
 
-        // prints only numeric part of a floating number
-        DecimalFormat ft = new DecimalFormat("####");
-        System.out.println("Without fraction part: num = "
-                + ft.format(num));
+        System.out.println("Formatted Date: " + date);
 
-        // this will print it upto 2 decimal places
-        ft = new DecimalFormat("#.##");
-        System.out.println(
-                "Formatted to Give precision: num = "
-                        + ft.format(num));
+        String anotherDate = "23/11/2024";
+        ft = new SimpleDateFormat("MM/dd/yyyy");
+        Date parsedAnotherDate = ft.parse(anotherDate); // We need to handle exception here. So, adding it.
+        System.out.println("Another date in another format: " + parsedAnotherDate);
 
-        // automatically appends zero to the rightmost part
-        // of decimal instead of #,we use digit 0
-        ft = new DecimalFormat("#.000000");
-        System.out.println(
-                "appended zeroes to right: num = "
-                        + ft.format(num));
-
-        // automatically appends zero to the leftmost of
-        // decimal number instead of #,we use digit 0
-        ft = new DecimalFormat("00000.00");
-        System.out.println(
-                "formatting Numeric part : num = "
-                        + ft.format(num));
-
-        // formatting money in dollars
-        double income = 23456.789;
-        ft = new DecimalFormat("$###,###.##");
-        System.out.println("your Formatted Dream Income : "
-                + ft.format(income));
+        System.out.println("Parsed Date: " + parsedAnotherDate);
     }
 }
 
