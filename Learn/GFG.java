@@ -1,26 +1,39 @@
-import java.io.*;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//{ Driver Code Starts
+//Initial Template for Java
+
 import java.util.Scanner;
 
-public class GFG{
-    //Given a number, find the number of digits in that number
-    //ALTERNATE SOLUTION
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+class Main {
 
-        System.out.println("Enter the number: ");
-        int number = sc.nextInt();
-        int countOfDigits = 0;
-        int N = number;
 
-        while (N != 0){
-            N = N / 10;
-            countOfDigits++;
+// } Driver Code Ends
+//User function Template for Java
+
+    public static void triangleWall(int s){
+
+        //Write your code here
+        for (int i = 1 ; i <= s ; ++i) {
+            for (int j = 0 ; j < i ; ++j) {
+                System.out.print("* ");
+            }
+            System.out.println();
         }
 
-        System.out.println("The number of digits in the number " + number + " is: " + countOfDigits);
+    }
+
+//{ Driver Code Starts.
+
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int t = scn.nextInt();
+        while(t-- > 0) {
+            int s = scn.nextInt();
+            triangleWall(s);
+
+            System.out.println("~");
+        }
+        scn.close();
     }
 }
+// } Driver Code Ends
