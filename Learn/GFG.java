@@ -6,41 +6,19 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class GFG{
-
+    // Write a program that takes 5 pairs of integers from user.
+    // For every pair (x,y), it should print x/y. if y == 0 , it should continue
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter the 2 numbers");
-        int firstNumber = sc.nextInt();
-        int secondNumber = sc.nextInt();
-
-        System.out.println("Enter the operand=> + , - , * , / , %");
-        sc.nextLine();
-        char operand = sc.nextLine().charAt(0);
-
-        calculate(firstNumber , secondNumber , operand);
-    }
-
-    static void calculate (int firstNumber,  int secondNumber , char operand) {
-        switch (operand) {
-            case '+':
-                System.out.println(firstNumber + secondNumber);
-                break;
-            case '-':
-                System.out.println(firstNumber - secondNumber);
-                break;
-            case '*':
-                System.out.println(firstNumber * secondNumber);
-                break;
-            case '/':
-                double result = ((double) firstNumber / secondNumber);
-                System.out.format("%.2f" , result);
-                break;
-            case '%':
-                System.out.println(firstNumber % secondNumber);
-                break;
-            default:
-                System.out.println("Invalid operand");
+        int i = 0;
+        while (i < 3) {
+            i += 1;
+            System.out.print("x: ");
+            int x = sc.nextInt();
+            System.out.print("y: ");
+            int y = sc.nextInt();
+            if (y == 0) continue;
+            System.out.println("For the given pair, x/y: " + ((double)x / y));
         }
     }
 }
