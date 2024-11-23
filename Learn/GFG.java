@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class GFG{
     //Given a number, find the number of digits in that number
+    //ALTERNATE SOLUTION
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -14,9 +15,10 @@ public class GFG{
         int number = sc.nextInt();
         int countOfDigits = 0;
         int N = number;
-        while (N > 0) {
-            countOfDigits += 1;
+
+        while (N != 0){
             N = N / 10;
+            countOfDigits++;
         }
 
         System.out.println("The number of digits in the number " + number + " is: " + countOfDigits);
