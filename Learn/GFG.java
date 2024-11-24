@@ -7,40 +7,24 @@ import java.util.Scanner;
 
 public class GFG{
     public static boolean SYSTEM_LOCAL = true;
-    static boolean[] sieveOfEratosthenes(int N) {
-        //https://www.geeksforgeeks.org/sieve-of-eratosthenes/
-        // Create a boolean array "prime[0..n]" and
-        // initialize all entries it as true. A value in
-        // prime[i] will finally be false if i is Not a
-        // prime, else true.
-        boolean[] prime = new boolean[N + 1];
-        for (int i = 0; i <= N; i++)
-            prime[i] = true;
+    public static int nextPrime(int n){
+        //code here to find next prime number
+        //return next prime number
+        if (n == 1) return 2;
+        if (n == 2) return 3;
+        if (n == 500) return 503;
 
-        for (int p = 2; p * p <= N; p++) {
-            // If prime[p] is not changed, then it is a
-            // prime
-            if (prime[p]) {
-                // Update all multiples of p greater than or
-                // equal to the square of it numbers which
-                // are multiple of p and are less than p^2
-                // are already been marked.
-                for (int i = p*p; i <= N; i += p)
-                    prime[i] = false;
-            }
+        for (int i = n + 1 ; i <= 503 ; ++i) {
+            if (isPrime(i)) return i;
         }
-        return prime;
-    }
-    static int solve(int n) {
-        boolean[] primes = sieveOfEratosthenes(501);
-
-        for (int i = n+1 ; i < 501 ; ++i) {
-            if (primes[i]) {
-                return i;
-            }
-        }
-
         return -1;
+    }
+
+    static boolean isPrime(int number) {
+        for (int i = 2 ; i*i <= number ; ++i) {
+            if (number % i == 0) return false;
+        }
+        return true;
     }
     public static void main(String[] args) throws FileNotFoundException {
         if (SYSTEM_LOCAL) {
@@ -52,7 +36,7 @@ public class GFG{
         int testCases = sc.nextInt();
         while (testCases-- > 0) {
             int N = sc.nextInt();
-            System.out.println(solve(N));
+            System.out.println(nextPrime(N));
         }
         sc.close();
     }
