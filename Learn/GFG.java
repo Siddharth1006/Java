@@ -7,24 +7,21 @@ import java.util.Scanner;
 
 public class GFG{
     public static boolean SYSTEM_LOCAL = true;
-    public static int nextPrime(int n){
-        //code here to find next prime number
-        //return next prime number
-        if (n == 1) return 2;
-        if (n == 2) return 3;
-        if (n == 500) return 503;
-
-        for (int i = n + 1 ; i <= 503 ; ++i) {
-            if (isPrime(i)) return i;
+    public static int fibonacci(int n) {
+        if (n == 0) {
+            return 0;  // Base case for 0th Fibonacci number
         }
-        return -1;
-    }
-
-    static boolean isPrime(int number) {
-        for (int i = 2 ; i*i <= number ; ++i) {
-            if (number % i == 0) return false;
+        if (n == 1) {
+            return 1;  // Base case for 1st Fibonacci number
         }
-        return true;
+
+        int a = 0, b = 1;  // F(0) = 0, F(1) = 1
+        for (int i = 2; i <= n; i++) {
+            int next = a + b;  // Next Fibonacci number is the sum of the last two
+            a = b;  // Update a to the last Fibonacci number
+            b = next;  // Update b to the current Fibonacci number
+        }
+        return b;  // Return the nth Fibonacci number
     }
     public static void main(String[] args) throws FileNotFoundException {
         if (SYSTEM_LOCAL) {
@@ -36,7 +33,7 @@ public class GFG{
         int testCases = sc.nextInt();
         while (testCases-- > 0) {
             int N = sc.nextInt();
-            System.out.println(nextPrime(N));
+            System.out.println(fibonacci(N));
         }
         sc.close();
     }
