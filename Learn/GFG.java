@@ -8,15 +8,17 @@ import java.util.Scanner;
 public class GFG{
     public static boolean SYSTEM_LOCAL = true;
 
-    public static int lcm (int num1 , int num2) {
-        int lcm = Math.max(num1, num2);
-        for (int i = lcm; i <= num1 * num2; i += lcm) {
-            if (i % num1 == 0 && i % num2 == 0) {
-                lcm = i;
-                break;
-            }
-        }
-        return lcm;
+    public static boolean isPrime(int n) {
+        // Corner case
+        if (n <= 1)
+            return false;
+
+        // Check from 2 to n-1
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
     }
     public static void main(String[] args) throws FileNotFoundException {
         if (SYSTEM_LOCAL) {
@@ -27,11 +29,8 @@ public class GFG{
         Scanner sc = new Scanner(System.in);
         int testCases = sc.nextInt();
         while (testCases-- > 0) {
-            int A = sc.nextInt();
-            int B = sc.nextInt();
-
-            int ans = lcm(A, B);
-            System.out.println(ans);
+            int N = sc.nextInt();
+            System.out.println(isPrime(N) ? "YES" : "NO");
         }
         sc.close();
     }
