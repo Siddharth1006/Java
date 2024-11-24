@@ -8,14 +8,15 @@ import java.util.Scanner;
 public class GFG{
     public static boolean SYSTEM_LOCAL = true;
 
-    public static int lcm (int a , int b) {
-        int ans = Math.min(a, b);
-        while (true) {
-            if (ans % a == 0 && ans % b == 0){
-                return ans;
+    public static int lcm (int num1 , int num2) {
+        int lcm = Math.max(num1, num2);
+        for (int i = lcm; i <= num1 * num2; i += lcm) {
+            if (i % num1 == 0 && i % num2 == 0) {
+                lcm = i;
+                break;
             }
-            ans++;
         }
+        return lcm;
     }
     public static void main(String[] args) throws FileNotFoundException {
         if (SYSTEM_LOCAL) {
